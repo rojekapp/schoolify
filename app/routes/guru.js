@@ -42,7 +42,7 @@ router.post('/login',async (req,res)=>{
   var email = req.body.email;
   var passwords = md5(req.body.password);
   const conn = await connection({ host, user, password, database }).catch(e => {});
-  const beb = await query(conn,"SELECT nama,email,sekolah,induk FROM guru WHERE email='"+email+"' AND password='"+passwords+"'").then(response=>{
+  const beb = await query(conn,"SELECT nama,email,sekolah,induk,id_guru FROM guru WHERE email='"+email+"' AND password='"+passwords+"'").then(response=>{
     if(response.length == 0){
       
       
